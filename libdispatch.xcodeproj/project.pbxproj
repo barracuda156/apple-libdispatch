@@ -378,9 +378,7 @@
 					"-fdiagnostics-show-option",
 					"-fsched-interblock",
 					"-freorder-blocks",
-					"-Xarch_x86_64",
 					"-momit-leaf-frame-pointer",
-					"-Xarch_i386",
 					"-momit-leaf-frame-pointer",
 				);
 				OTHER_CFLAGS_debug = "-O0 -fstack-protector -fno-inline -DDISPATCH_DEBUG=1";
@@ -423,9 +421,7 @@
 					"-fdiagnostics-show-option",
 					"-fsched-interblock",
 					"-freorder-blocks",
-					"-Xarch_x86_64",
 					"-momit-leaf-frame-pointer",
-					"-Xarch_i386",
 					"-momit-leaf-frame-pointer",
 				);
 				OTHER_CFLAGS_debug = "-O0 -fstack-protector -fno-inline -DDISPATCH_DEBUG=1";
