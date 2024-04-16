@@ -1160,8 +1160,11 @@ _dispatch_root_queues_init(void *context __attribute__((unused)))
 	for (i = 0; i < DISPATCH_ROOT_QUEUE_COUNT; i++) {
 		r = pthread_workqueue_attr_setqueuepriority_np(&pwq_attr, _dispatch_rootq2wq_pri(i));
 		dispatch_assume_zero(r);
+// FIXME: no support in libpthread for this at the moment:
+#ifndef __POWERPC__
 		r = pthread_workqueue_attr_setovercommit_np(&pwq_attr, i & 1);
 		dispatch_assume_zero(r);
+#endif
 // some software hangs if the non-overcommitting queues do not overcommit when threads block
 #if 0
 		if (!(i & 1)) {
