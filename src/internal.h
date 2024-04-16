@@ -264,7 +264,6 @@ __private_extern__ struct _dispatch_hw_config_s {
 // 2) A hand crafted call to mach_msg*() screwed up. Use MIG.
 #define DISPATCH_VERIFY_MIG(x) do {	\
 		if ((x) == MIG_REPLY_MISMATCH) {	\
-			__crashreporter_info__ = "MIG_REPLY_MISMATCH";	\
 			_dispatch_hardware_crash();	\
 		}	\
 	} while (0)
@@ -272,24 +271,20 @@ __private_extern__ struct _dispatch_hw_config_s {
 #if defined(__x86_64__) || defined(__i386__)
 // total hack to ensure that return register of a function is not trashed
 #define DISPATCH_CRASH(x)	do {	\
-		asm("mov	%1, %0" : "=m" (__crashreporter_info__) : "c" ("BUG IN LIBDISPATCH: " x));	\
 		_dispatch_hardware_crash();	\
 	} while (0)
 
 #define DISPATCH_CLIENT_CRASH(x)	do {	\
-		asm("mov	%1, %0" : "=m" (__crashreporter_info__) : "c" ("BUG IN CLIENT OF LIBDISPATCH: " x));	\
 		_dispatch_hardware_crash();	\
 	} while (0)
 
 #else
 
 #define DISPATCH_CRASH(x)	do {	\
-		__crashreporter_info__ = "BUG IN LIBDISPATCH: " x;	\
 		_dispatch_hardware_crash();	\
 	} while (0)
 
 #define DISPATCH_CLIENT_CRASH(x)	do {	\
-		__crashreporter_info__ = "BUG IN CLIENT OF LIBDISPATCH: " x;	\
 		_dispatch_hardware_crash();	\
 	} while (0)
 

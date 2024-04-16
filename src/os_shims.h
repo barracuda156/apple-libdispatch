@@ -31,7 +31,9 @@
 #include <pthread_machdep.h>
 #include <pthread_workqueue.h>
 
-__private_extern__ const char *__crashreporter_info__;
+// This should work, but does not. However, it is only used
+// in a single place for debugging info. Drop for now.
+// __private_extern__ const char *__crashreporter_info__;
 
 static const unsigned long dispatch_queue_key = __PTK_LIBDISPATCH_KEY0;
 static const unsigned long dispatch_sema4_key = __PTK_LIBDISPATCH_KEY1;
