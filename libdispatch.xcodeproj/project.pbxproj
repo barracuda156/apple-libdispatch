@@ -378,8 +378,10 @@
 					"-fdiagnostics-show-option",
 					"-fsched-interblock",
 					"-freorder-blocks",
-					"-momit-leaf-frame-pointer",
-					"-momit-leaf-frame-pointer",
+					"-DPRIVATE",
+					"-I../Libc-594.9.5/pthreads",
+					"-I../libclosure-38",
+					"-I../xnu-1504.15.3/libkern",
 				);
 				OTHER_CFLAGS_debug = "-O0 -fstack-protector -fno-inline -DDISPATCH_DEBUG=1";
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/dispatch;
@@ -421,8 +423,10 @@
 					"-fdiagnostics-show-option",
 					"-fsched-interblock",
 					"-freorder-blocks",
-					"-momit-leaf-frame-pointer",
-					"-momit-leaf-frame-pointer",
+					"-DPRIVATE",
+					"-I../Libc-594.9.5/pthreads",
+					"-I../libclosure-38",
+					"-I../xnu-1504.15.3/libkern",
 				);
 				OTHER_CFLAGS_debug = "-O0 -fstack-protector -fno-inline -DDISPATCH_DEBUG=1";
 				PREBINDING = NO;
